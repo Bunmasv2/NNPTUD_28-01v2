@@ -2,24 +2,39 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý Post & Comment</title>
+    <title>Quản lý CMS - JSON Server</title>
     <style>
-        body { font-family: sans-serif; margin: 20px; line-height: 1.6; }
-        .container { display: flex; gap: 40px; }
-        section { flex: 1; border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
-        .deleted { text-decoration: line-through; color: #888; background-color: #f9f9f9; }
-        .item { border-bottom: 1px solid #eee; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; }
-        button { cursor: pointer; margin-left: 5px; }
-        input { padding: 5px; margin-bottom: 10px; width: 70%; }
-        .form-group { margin-bottom: 15px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 30px; background-color: #f4f7f6; }
+        .container { display: flex; gap: 20px; }
+        section { flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #333; }
+        
+        /* Style cho trạng thái xoá mềm */
+        .deleted-row { text-decoration: line-through; color: #a0a0a0; font-style: italic; }
+        
+        .item { border-bottom: 1px solid #eee; padding: 12px 0; display: flex; flex-direction: column; gap: 5px; }
+        .actions { display: flex; gap: 5px; }
+        
+        .form-group { background: #e9ecef; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 5px; margin-bottom: 5px; }
+        button { padding: 8px 12px; border: none; border-radius: 4px; color: white; cursor: pointer; }
+        
+        .btn-add { background-color: #28a745; }
+        .btn-edit { background-color: #ffc107; color: #333; }
+        .btn-soft { background-color: #fd7e14; }
+        .btn-del { background-color: #dc3545; }
     </style>
 </head>
 <body>
-    <h1>Bài tập: Quản lý API - JSON Server</h1>
+    <h1>Hệ thống quản lý Post & Comment</h1>
 
     <div class="container">
         <section>
-            <h2>Danh sách Posts</h2>
+            <h2>Quản lý Posts</h2>
+            <div class="form-group">
+                <input type="text" id="postTitle" placeholder="Tiêu đề bài viết...">
+                <button class="btn-add" onclick="handleCreatePost()">+ Thêm Post</button>
+            </div>
             <div id="postList"></div>
         </section>
 
@@ -27,8 +42,8 @@
             <h2>Quản lý Comments</h2>
             <div class="form-group">
                 <input type="text" id="commentText" placeholder="Nội dung bình luận...">
-                <input type="text" id="commentPostId" placeholder="ID bài viết (PostId)...">
-                <button onclick="handleCreateComment()">Thêm Comment</button>
+                <input type="text" id="commentPostId" style="width: 80px;" placeholder="Post ID">
+                <button class="btn-add" onclick="handleCreateComment()">+ Thêm Comment</button>
             </div>
             <div id="commentList"></div>
         </section>
