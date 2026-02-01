@@ -1,0 +1,12 @@
+{
+  "posts": [
+    { "id": "1", "title": "a title", "views": 100, "isDeleted": false },
+    { "id": "2", "title": "another title", "views": 200, "isDeleted": true }
+  ],
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

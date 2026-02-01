@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Post & Comment</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; line-height: 1.6; }
+        .container { display: flex; gap: 40px; }
+        section { flex: 1; border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+        .deleted { text-decoration: line-through; color: #888; background-color: #f9f9f9; }
+        .item { border-bottom: 1px solid #eee; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; }
+        button { cursor: pointer; margin-left: 5px; }
+        input { padding: 5px; margin-bottom: 10px; width: 70%; }
+        .form-group { margin-bottom: 15px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Bài tập: Quản lý API - JSON Server</h1>
+
+    <div class="container">
+        <section>
+            <h2>Danh sách Posts</h2>
+            <div id="postList"></div>
+        </section>
+
+        <section>
+            <h2>Quản lý Comments</h2>
+            <div class="form-group">
+                <input type="text" id="commentText" placeholder="Nội dung bình luận...">
+                <input type="text" id="commentPostId" placeholder="ID bài viết (PostId)...">
+                <button onclick="handleCreateComment()">Thêm Comment</button>
+            </div>
+            <div id="commentList"></div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
